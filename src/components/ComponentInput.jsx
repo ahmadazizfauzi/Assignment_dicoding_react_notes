@@ -6,7 +6,6 @@ const ComponentInput = (props) => {
   const { addNote } = props;
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [notes, setNotes] = useState({});
 
   const onSubmitEventHandler = (event) => {
     event.preventDefault();

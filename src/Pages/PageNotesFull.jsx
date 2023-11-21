@@ -5,6 +5,7 @@ import { getData } from "../utils/data";
 import FragmentList from "../Fragments/FragmentList";
 import FragmentBanner from "../Fragments/FragmentBanner";
 import FragmentFooter from "../Fragments/FragmentFooter";
+import FragmentInput from "../Fragments/FragmentInput";
 
 const PageNotesFull = () => {
   // Menggunakan hooks useState untuk menyimpan data catatan
@@ -31,20 +32,8 @@ const PageNotesFull = () => {
     <Fragment>
       <section className="bg-black px-10">
         <FragmentBanner />
-        <section
-          id="FRAGMENT-INPUT"
-          className="text-white py-20 md:w-[80%] lg:w-[60%]  mx-auto"
-        >
-          <div className="flex justify-center">
-            <h1 className="font-bold text-2xl">Buat Catatan</h1>
-          </div>
-          <div className="flex justify-end">
-            <h1>Sisa karakter : </h1>
-          </div>
-
-          {/* Mengirimkan fungsi addNoteHandler sebagai prop ke ComponentInput */}
-          <ComponentInput addNote={onAddNoteHandler} />
-        </section>
+        <FragmentInput addNote={onAddNoteHandler}/>
+       
 
         <FragmentList notes={notes} />
         <FragmentFooter />
