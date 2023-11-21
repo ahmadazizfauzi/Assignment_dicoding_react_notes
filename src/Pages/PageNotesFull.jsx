@@ -28,14 +28,17 @@ const PageNotesFull = () => {
     ]);
   };
 
+  const onDeleteHandler = (id) => {
+    const updateNotes = notes.filter((note) => note.id !== id);
+    setNotes(updateNotes);
+  };
+
   return (
     <Fragment>
       <section className="bg-black px-10">
         <FragmentBanner />
-        <FragmentInput addNote={onAddNoteHandler}/>
-       
-
-        <FragmentList notes={notes} />
+        <FragmentInput addNote={onAddNoteHandler} />
+        <FragmentList notes={notes} onDelete={onDeleteHandler} />
         <FragmentFooter />
       </section>
     </Fragment>

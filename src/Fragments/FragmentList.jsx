@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import ComponentCard from "../components/ComponentCard";
 import { getData } from "../utils/data";
 
-const FragmentList = ({notes}) => {
+const FragmentList = ({notes, onDelete}) => {
   return (
     <Fragment>
       <section
@@ -15,9 +15,9 @@ const FragmentList = ({notes}) => {
             Catatan Aktif
           </h1>
         </div>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap justify-center">
           {notes.map((note) => (
-            <ComponentCard key={note.id} date={note.id} title={note.title} desc={note.body} />
+            <ComponentCard key={note.id} date={note.id} id={note.id} title={note.title} desc={note.body} onDelete={onDelete}/>
           ))}
         </div>
       </section>
