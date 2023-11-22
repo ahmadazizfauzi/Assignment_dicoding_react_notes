@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Fragment } from "react";
 
 const ComponentCard = (props) => {
-    const {title, desc, date, id, onDelete} = props
+    const {title, desc, date, id, onDelete, what, onArchive} = props
   return (
     <Fragment>
       <section
@@ -24,15 +24,13 @@ const ComponentCard = (props) => {
         </div>
         <section id="BUTTON" className="flex absolute left-0 -bottom-3 w-full">
           <div className=" border-2 border-gray-400 border-solid w-[50%] p-2 my-3 hover:opacity-50 active:bg-gray-600 transition-all duration-500">
-            <button className="w-full" onClick={() => {
-                onDelete(id)
-            }}>
+            <button className="w-full" onClick={onDelete}>
               <h1 className="w-full text-center text-red-500">Delete</h1>
             </button>
           </div>
           <div className=" border-2 border-gray-400 border-solid w-[50%] p-2 my-3 hover:opacity-50 active:bg-gray-600 transition-all duration-500">
             <button className="w-full">
-              <h1 className="w-full text-center text-orange-300">Arsipkan</h1>
+              <h1 className="w-full text-center text-orange-300" onClick={onArchive}>{what}</h1>
             </button>
           </div>
         </section>
