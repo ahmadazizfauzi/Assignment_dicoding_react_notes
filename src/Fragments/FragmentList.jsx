@@ -31,21 +31,27 @@ const FragmentList = ({ notes, onDelete, onArchive }) => {
           </h1>
         </div>
         <div className="flex flex-wrap justify-center">
-          {activeNotes
-            .map((note) => (
-              <ComponentCard
-                key={note.id}
-                date={note.createdAt}
-                id={note.id}
-                title={note.title}
-                desc={note.body}
-                onDelete={() => onDelete(note.id)}
-                what={"Arsipkan"}
-                onArchive={() => onArchive(note.id)}
-                searchTerm={searchTerm}
-              />
-            ))
-            .reverse()}
+          {activeNotes.length === 0 ? (
+            <p className="text-center text-gray-500">
+              Tidak ada catatan aktif.
+            </p>
+          ) : (
+            activeNotes
+              .map((note) => (
+                <ComponentCard
+                  key={note.id}
+                  date={note.createdAt}
+                  id={note.id}
+                  title={note.title}
+                  desc={note.body}
+                  onDelete={() => onDelete(note.id)}
+                  what={"Arsipkan"}
+                  onArchive={() => onArchive(note.id)}
+                  searchTerm={searchTerm}
+                />
+              ))
+              .reverse()
+          )}
         </div>
       </section>
       <section
@@ -56,21 +62,27 @@ const FragmentList = ({ notes, onDelete, onArchive }) => {
           <h1 className="font-bold text-2xl text-center w-full mb-6">Arsip</h1>
         </div>
         <div className="flex flex-wrap justify-center">
-          {archivedNotes
-            .map((note) => (
-              <ComponentCard
-                key={note.id}
-                date={note.id}
-                id={note.id}
-                title={note.title}
-                desc={note.body}
-                onDelete={() => onDelete(note.id)}
-                onArchive={() => onArchive(note.id)}
-                searchTerm={searchTerm}
-                what={"Pindahkan"}
-              />
-            ))
-            .reverse()}
+          {archivedNotes.length === 0 ? (
+            <p className="text-center text-gray-500">
+              Tidak ada catatan diarsipkan.
+            </p>
+          ) : (
+            archivedNotes
+              .map((note) => (
+                <ComponentCard
+                  key={note.id}
+                  date={note.createdAt}
+                  id={note.id}
+                  title={note.title}
+                  desc={note.body}
+                  onDelete={() => onDelete(note.id)}
+                  onArchive={() => onArchive(note.id)}
+                  searchTerm={searchTerm}
+                  what={"Pindahkan"}
+                />
+              ))
+              .reverse()
+          )}
         </div>
       </section>
     </Fragment>
